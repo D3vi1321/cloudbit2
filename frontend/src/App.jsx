@@ -1,17 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Courses from "./pages/Courses";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Auth from './Components/Auth';
+import './CSS/Auth.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/courses" element={<Courses />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="App">
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route path="/login" element={<Auth />} />
+            <Route path="/signup" element={<Auth />} />
+            <Route path="/" element={<Auth />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 
