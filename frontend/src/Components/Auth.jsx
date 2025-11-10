@@ -262,7 +262,7 @@ const Auth = () => {
       )}
       
       <motion.div 
-        className="auth-card"
+        className={`auth-card ${!isLogin ? 'signup' : ''}`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
